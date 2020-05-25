@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,16 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+ 
+  constructor(private userService: UserService, private router: Router) {
+    // this.reset();
+   }
 
   ngOnInit() {
   }
 
+  adminUser=false;
+  validateUser(user){
+    if (user.name === "Flora") {
+       this.adminUser=true;
+    }
+  }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

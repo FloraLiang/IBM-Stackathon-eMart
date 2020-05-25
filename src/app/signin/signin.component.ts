@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserService} from '../user.service'
+import {UserService} from '../user.service';
+
+
 
 interface Alert {
   type: string;
@@ -32,12 +34,24 @@ export class SigninComponent implements OnInit {
     }
   }
 
-  onSubmit(value: any) {
+
+
+  adminUser=false;
+   onSubmit(value:any){
+     if(this.validInput(value)){
+      console.log(JSON.stringify(value));
+      window.alert("You've logged in!");
+      if(value.name==="Flora"){
+      this.adminUser=true;}
+     }
+  } 
+ /*   onSubmit(value: any) {
     if (this.validInput(value)) {
       this.userService.postSignIn(value).subscribe(
         data => {
           console.log(JSON.stringify(data));
-          const info: any = data;
+          window.alert("You've logged in!"); */
+ /*          const info: any = data;
           if (200 === info.code) {
               console.log('登录成功，调转详情页');
               sessionStorage.setItem('token', info.result.token)
@@ -46,11 +60,11 @@ export class SigninComponent implements OnInit {
             console.log('登录失败，弹出MSG');
             this.alerts.push({type : 'danger', message: 'username or password error!'});
 
-          }
+          } 
         }
       );
     }
-  }
+  } */
 
   validInput(value: any): boolean {
     this.reset();

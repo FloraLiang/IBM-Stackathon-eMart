@@ -12,17 +12,25 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { SigninComponent } from './signin/signin.component';
+import {  FormsModule  }  from  '@angular/forms';
+// import { SellerTopBarComponent } from './seller/seller-top-bar/seller-top-bar.component';
+import { AddItemComponent } from './seller/add-item/add-item.component';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
    imports: [
 	 BrowserModule,
 	 HttpClientModule,
-	 ReactiveFormsModule,
+    ReactiveFormsModule,
+    FormsModule,
+   //  NgbModule,
 	 RouterModule.forRoot([
 	 	{path:'',component:ProductListComponent},
 	 	{path:'products/:productId',component:ProductDetailsComponent},
 	 	{path:'cart',component:CartComponent},
-	 	{path:'shipping',component:ShippingComponent},
+      {path:'shipping',component:ShippingComponent},
+      {path:'sign-in',component:SigninComponent},
+      {path:'add-item',component:AddItemComponent}
 	 ])
 	],
    declarations: [
@@ -33,17 +41,12 @@ import { SigninComponent } from './signin/signin.component';
       ProductDetailsComponent,
       CartComponent,
       ShippingComponent,
-      SigninComponent
+      SigninComponent,
+      // SellerTopBarComponent,
+      AddItemComponent
    ],
    bootstrap: [
       AppComponent
    ]
 })
 export class AppModule { }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

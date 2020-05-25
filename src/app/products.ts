@@ -3,6 +3,7 @@ export const products = [
     name: 'iPhone XR',
     price: 3000,
     pic: '../assets/imgs/iphone.jpg',
+    amount: "100",
     description: 'A large phone with one of the best screens'
   },
   {

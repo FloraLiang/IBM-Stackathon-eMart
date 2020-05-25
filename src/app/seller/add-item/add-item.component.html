@@ -1,0 +1,165 @@
+
+<h2>Update Item</h2>
+
+<!-- <div *ngIf="product">
+  <p><img [src]="product.pic" width="300px" height="300px"></p>
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+
+  <button (click)="addToCart(product)">Buy</button>
+</div> -->
+
+<ul>
+  <!-- <h3>Update Item</h3> -->
+  <li>Product Name:<input type="" name="bname" id="bname" value="" placeholder="not blank" /></li>
+  <li>Product Price:<input type="" name="bprice" id="bprice" value="" placeholder="greater than 0" /></li>
+  <li>Description:<input type="" name="bnum" id="bnum" value="" placeholder="" /></li>
+  <input type="button" id="add" value="Upload" />
+</ul>
+<input type="button" id="" value="Delete all" onclick="delAll()" />
+<table border="0" cellpadding="0" cellspacing="10" >
+  <tr>
+      <td><input type="checkbox" id="" value="" onclick="changbj(this)" /></td>
+      <td><img src="../assets/imgs/iphone.jpg" height=80 width=80/></td>
+      <td>iPhone XR</td>
+      <td>￥3000</td>
+      <td>
+          <input type="button" id="" value="-" onclick="reduce1(this.amount)" />
+          <input type="text" id="" value="20" />
+          <input type="button" id="" value="+" onclick="plus(this)" />
+      </td>
+      <!-- <td>小计:￥50</td> -->
+      <td><input type="button" value="delete" onclick="del(this)"  /></td>
+  </tr>
+
+  <tr>
+      <td><input type="checkbox" id="" value="" onclick="" /></td>
+      <td><img src="../assets/imgs/Huawei.jpg" height=80 width=80/></td>
+      <td>Huawei P20</td>
+      <td>￥1300</td>
+      <td>
+          <input type="button" id="" value="-" />
+          <input type="text" id="" value="20" />
+          <input type="button" id="" value="+" />
+      </td>
+      <!-- <td>小计:￥50</td> -->
+      <td><input type="button" value="delete" onclick="del(this)"  /></td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" id="" value="" onclick="changbj(this)" /></td>
+    <td><img src="../assets/imgs/Redmi.jpg" height=80 width=80/></td>
+    <td>Redmi Note8</td>
+    <td>￥699</td>
+    <td>
+        <input type="button" id="" value="-" onclick="reduce(this)" />
+        <input type="text" id="" value="20" />
+        <input type="button" id="" value="+" onclick="plus(this)" />
+    </td>
+    <!-- <td>小计:￥50</td> -->
+    <td><input type="button" value="delete" onclick="del(this)"  /></td>
+</tr>
+</table>
+<script type="text/javascript">
+
+  //删除一行数据
+  function del(obj){
+      var result = confirm("您确定要删除吗?");
+
+      if (result) {
+          $(obj).parent().parent().remove();//删除
+      }
+  }
+  function reduce1(m,index){
+    m-=1;
+    if(m<1){
+                    $scope.movie.splice(index,1);
+                }else{
+                    return m;
+                }
+  }
+
+
+
+
+  //批量删除
+  function delAll(){
+      //得到所有选中的checkbox
+      var cbs = $("input:checked");
+      if (cbs.length==0) {
+          alert("请选择!");
+      }else{
+          cbs.each(function(){
+              $(this).parent().parent().remove();
+          });
+        }
+
+}
+//数量加加
+function plus(obj){
+    //得到数量控件
+    var eleNum = $(obj).prev("input");
+    //得到值
+    var v = eleNum.val();
+
+    v++;
+    //进行赋值
+    eleNum.val(v);
+
+}
+
+//数量减减
+function reduce(obj){
+    //得到 数量 控件
+    var eleNum = $(obj).next("input");
+    //得到值
+    var v = eleNum.val();
+            //数值减减
+            v--;
+            //进行赋值
+            eleNum.val(v);
+
+        }
+
+        //改变背景色
+        function changbj(obj){
+            if (obj.checked) {
+                $(obj).parent().parent().css("background-color","pink");
+            } else{
+                $(obj).parent().parent().css("background-color","white");
+            }
+          }
+
+//判断书名是否为空和添加图书
+$(function(){
+    $("#add").click(function(){
+        var bookname=$("#bname").val();
+        var bookprice=$("#bprice").val();
+        var booknum=$("#bnum").val();
+        if (bookname=="") {
+            alert("书名不能为空!");
+            return;
+        }
+
+        if (bookprice=="" || bookprice<=0) {
+            alert("书名不能为空!");
+            return;
+        }
+          //添加图书
+          var newtr=
+            "<tr>"+
+                "<td><input type='checkbox' id='' value=''/></td>"+
+                "<td><img src='img/a.png'/></td>"+
+                "<td>"+bookname+"</td>"+
+                "<td>￥"+bookprice+"</td>"+
+                "<td><input type='button' value='-' /><input type='text' value='"+booknum+"' /><input type='button' value='+' /></td>"+
+                "<td>小计:￥"+(bookprice*booknum)+"</td>"+
+                "<td><input type='button' value='删除' onclick='del(this)'  /></td>"+
+            "</tr>"
+
+                $("table").append(newtr);
+
+            });
+        });
+      </script>

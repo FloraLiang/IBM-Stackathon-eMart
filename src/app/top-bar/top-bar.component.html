@@ -2,14 +2,18 @@
   <h1>eMart</h1>
 </a>
 
+<a *ngIf="adminUser" [routerLink]="['/addItem']">Add Item </a>
 <a class="button fancy-button" [routerLink]="['/cart']"><i class="material-icons">shopping_cart</i>Checkout</a>
 
 <!-- <a [title]="product.name + ' details'"[routerLink]="['/products', productId]">
   {{ product.name }}
 </a> -->
 
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
+<!-- <form class="form-inline mt-2 mt-md-0">
+  <button *ngIf="!isSignin" class="btn btn-outline-primary" type="submit" [routerLink]="['/sign-in']">Sign in</button>
+  <button *ngIf="isSignin" class="btn btn-outline-secondary" type="submit" (click)="signOut()">Sign Out</button>
+</form> -->
+<!-- <li>
+  <button type="submit" [routerLink]="['/sign-in']">Sign in></button>
+</li> -->
+<a class="button fancy-button" [routerLink]="['/sign-in']">Sign in</a>

@@ -1,4 +1,5 @@
 <h2>Products</h2>
+
 <div *ngFor="let product of products; index as productId">
 
   <p><img [src]="product.pic" width="200px" height="200px"></p>
@@ -11,19 +12,8 @@
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>
-
-  <div>
-     
-
-
-  </div>
-
-  <div>
-     
-
-    
-  </div>
-
+<br>
+<br>
 
 <!-- <button (click)="share()">
     Share
@@ -35,9 +25,3 @@
 </app-product-alerts> -->
 
 </div>
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

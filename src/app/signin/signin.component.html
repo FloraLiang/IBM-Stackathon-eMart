@@ -1,16 +1,37 @@
-<p>
-  signin works!
-</p>
 
+<!-- <div>
+  <table>
+    <tr>
+      <td>User Name</td>
+      <td>
+        <input type="text" name="">
+      </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>
+        <input type="text" name="">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button (click)="login()">Log in</button>
+      </td>
+    </tr>
+  </table>
+</div>
+ -->
 <div class="div-signin">
   <!-- 用户名处的required是由Validator提供的内置校验方法，但是html元素也有叫
  required的属性，所以在form上加一个novalidate，表示不需要浏览器的默认校验-->
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+  <!-- <form class="form-signin" #myForm="ngForm" action="http://localhost:8080" method="get" (ngSubmit)="onSubmit(myForm.value)"> -->
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-    <p *ngFor="let alert of alerts">
+    <!-- <p *ngFor="let alert of alerts">
       <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
-    </p>
+    </p> -->
     
     <!-- bootstrap utilities/screenreaders   -->
     <label for="inputUsername" class="sr-only">User name</label>
@@ -28,4 +49,3 @@
 
   </form>
 </div>
-
